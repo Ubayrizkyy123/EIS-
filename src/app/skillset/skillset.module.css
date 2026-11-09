@@ -1,0 +1,110 @@
+.dashboard {
+  animation: dashboardFadeIn 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.sectionFade {
+  animation: sectionFadeUp 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.bar {
+  transform-origin: bottom;
+  animation: barGrow 780ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.progressCircle {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: progressDraw 1.25s cubic-bezier(0.22, 1, 0.36, 1) 320ms forwards;
+}
+
+.submenu {
+  transform-origin: top;
+  animation: submenuIn 240ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.dashboard button,
+.dashboard a,
+.dashboard input {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.dashboard button:focus-visible,
+.dashboard a:focus-visible,
+.dashboard input:focus-visible {
+  outline: 2px solid #18181b;
+  outline-offset: 2px;
+}
+
+@keyframes dashboardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sectionFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes barGrow {
+  from {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@keyframes progressDraw {
+  to {
+    stroke-dashoffset: 35;
+  }
+}
+
+@keyframes submenuIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scaleY(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dashboard,
+  .sectionFade,
+  .bar,
+  .submenu {
+    animation: none;
+  }
+
+  .progressCircle {
+    animation: none;
+    stroke-dashoffset: 35;
+  }
+
+  .dashboard *,
+  .dashboard *::before,
+  .dashboard *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -32,7 +32,7 @@ export function Sidebar({ role, activeYearName }: SidebarProps) {
       <div className="mt-auto flex flex-col gap-3 p-3">
         <AcademicYearCard activeYearName={activeYearName} />
         <p className="px-1 text-[11px] text-muted-foreground">
-          EIS Sekolah v0.1.0
+          Made by Baedillah, Raka, Diana
         </p>
       </div>
     </aside>
